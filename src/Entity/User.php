@@ -9,7 +9,13 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
- * @ApiResource()
+ * @ApiResource(
+ *     itemOperations={
+        "get"={
+ *          "access_control"="is_granted('IS_AUTHENTICATED_FULLY')"
+ *     }
+ *     }
+ * )
  */
 class User implements UserInterface
 {
